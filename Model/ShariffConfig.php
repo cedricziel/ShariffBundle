@@ -55,11 +55,11 @@ class ShariffConfig
     protected $client;
 
     /**
-     * @param string  $domain
-     * @param boolean $forceProtocol
-     * @param array   $services
-     * @param string  $cache
-     * @param string  $client
+     * @param string $domain
+     * @param string $forceProtocol
+     * @param array  $services
+     * @param array  $cache
+     * @param array  $client
      */
     public function __construct($domain, $forceProtocol, $services, $cache, $client)
     {

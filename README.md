@@ -1,5 +1,9 @@
 # Shariff Symfony 2 Bundle
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/build-status/master)
+
 Forked from https://github.com/valiton/ShariffBundle
 
 This bundle allows to easily integrate [Shariff](https://github.com/heiseonline/shariff-backend-php) with your Symfony 2 application
