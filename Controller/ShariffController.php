@@ -24,24 +24,16 @@ class ShariffController
     protected $config;
 
     /**
-     * @var  ViewHandlerInterface
-     */
-    protected $viewHandler;
-
-    /**
      * ShariffController constructor.
      *
      * @param ShariffServiceInterface $shariffService
      * @param ShariffConfig           $config
-     * @param ViewHandlerInterface    $viewHandler
      */
     public function __construct(
         ShariffServiceInterface $shariffService,
-        ShariffConfig $config,
-        ViewHandlerInterface $viewHandler
+        ShariffConfig $config
     ) {
         $this->shariffService = $shariffService;
-        $this->viewHandler = $viewHandler;
         $this->config = $config;
     }
 
