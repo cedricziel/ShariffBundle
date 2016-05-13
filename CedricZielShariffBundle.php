@@ -2,6 +2,7 @@
 
 namespace CedricZiel\ShariffBundle;
 
+use CedricZiel\ShariffBundle\DependencyInjection\CedricZielShariffExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -9,4 +10,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class CedricZielShariffBundle extends Bundle
 {
+    /**
+     * @return string
+     */
+    public function getContainerExtensionClass()
+    {
+        return CedricZielShariffExtension::class;
+    }
 }
