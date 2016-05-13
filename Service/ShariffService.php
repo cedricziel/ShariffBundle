@@ -38,8 +38,7 @@ class ShariffService implements ShariffServiceInterface
         try {
             return $backend->get($url);
         } catch (GuzzleException $e) {
-            return '{}';
+            return [$e];
         }
     }
-
 }

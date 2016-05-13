@@ -2,7 +2,6 @@
 
 namespace CedricZiel\ShariffBundle\Controller;
 
-
 use CedricZiel\ShariffBundle\Model\ShariffConfig;
 use CedricZiel\ShariffBundle\Service\ShariffServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,10 +28,8 @@ class ShariffController
      * @param ShariffServiceInterface $shariffService
      * @param ShariffConfig           $config
      */
-    public function __construct(
-        ShariffServiceInterface $shariffService,
-        ShariffConfig $config
-    ) {
+    public function __construct(ShariffServiceInterface $shariffService, ShariffConfig $config)
+    {
         $this->shariffService = $shariffService;
         $this->config = $config;
     }
