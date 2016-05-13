@@ -18,7 +18,7 @@ and activate the bundle in your kernel.
 Add the following to your app/config/routing.yml:
 
 ```
-valiton_shariff:
+cedricziel_shariff:
     resource: "@CedricZielShariffBundle/Resources/config/routing.xml"
     prefix:   /_shariff
 ```
