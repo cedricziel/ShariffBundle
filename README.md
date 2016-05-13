@@ -1,5 +1,6 @@
 # Shariff Symfony 2 Bundle
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/eda75d3b-c628-40d5-9033-55aaee034895/mini.png)](https://insight.sensiolabs.com/projects/eda75d3b-c628-40d5-9033-55aaee034895)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/cedricziel/ShariffBundle/build-status/master)
