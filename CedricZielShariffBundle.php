@@ -17,4 +17,16 @@ class CedricZielShariffBundle extends Bundle
     {
         return CedricZielShariffExtension::class;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension()
+    {
+        if (null === $this->extension) {
+            return $this->extension = $this->createContainerExtension();
+        }
+
+        return $this->extension;
+    }
 }
