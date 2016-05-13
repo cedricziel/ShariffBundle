@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('valiton_shariff');
+        $rootNode = $treeBuilder->root('cedricziel_shariff');
 
         $rootNode
             ->children()
