@@ -4,6 +4,7 @@ namespace CedricZiel\ShariffBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
@@ -35,7 +36,7 @@ class CedricZielShariffExtension extends Extension
         $container->setParameter('cedricziel_shariff.shariff_config.services', $config['services']);
         $container->setParameter('cedricziel_shariff.shariff_config.client', $config['client']);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
     }
 }

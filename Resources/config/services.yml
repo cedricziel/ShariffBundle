@@ -1,0 +1,27 @@
+parameters:
+    cedricziel_shariff.shariff_config.class: CedricZiel\ShariffBundle\Model\ShariffConfig
+    cedricziel_shariff.shariff_service.class: CedricZiel\ShariffBundle\Service\ShariffService
+    cedricziel_shariff.shariff_controller.class: CedricZiel\ShariffBundle\Controller\ShariffController
+    cedricziel_shariff.shariff_extension.class: CedricZiel\ShariffBundle\Twig\ShariffExtension
+services:
+    cedricziel_shariff.shariff_config:
+        class: CedricZiel\ShariffBundle\Model\ShariffConfig
+        arguments:
+            - '%cedricziel_shariff.shariff_config.domain%'
+            - '%cedricziel_shariff.shariff_config.force_protocol%'
+            - '%cedricziel_shariff.shariff_config.services%'
+            - '%cedricziel_shariff.shariff_config.cache%'
+            - '%cedricziel_shariff.shariff_config.client%'
+    cedricziel_shariff.shariff_service:
+        class: '%cedricziel_shariff.shariff_service.class%'
+        arguments: ['@cedricziel_shariff.shariff_config']
+    cedricziel_shariff.shariff_controller:
+        class: '%cedricziel_shariff.shariff_controller.class%'
+        arguments:
+            - '@cedricziel_shariff.shariff_service'
+            - '@cedricziel_shariff.shariff_config'
+    cedricziel_shariff.shariff_extension:
+        class: '%cedricziel_shariff.shariff_extension.class%'
+        arguments: ['@cedricziel_shariff.shariff_config']
+        tags:
+            - { name: "twig.extension" }
