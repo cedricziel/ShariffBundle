@@ -205,7 +205,7 @@ class ShariffConfig
         $result['services'] = array_filter(
             $result['services'],
             function ($v) {
-                return 'Twitter' != $v;
+                return 'Twitter' != $v && 'Mail' != $v;
             }
         );
 
