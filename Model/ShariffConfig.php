@@ -9,58 +9,74 @@ namespace CedricZiel\ShariffBundle\Model;
  */
 class ShariffConfig
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $domain;
 
-    /** @var string */
-    protected $force_protocol;
+    /**
+     * @var string
+     */
+    protected $forceProtocol;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $cacheDir;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $cacheTtl;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $services;
 
-    /** @var array */
-    protected $serviceConfig = array();
+    /**
+     * @var array
+     */
+    protected $serviceConfig = [];
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $adapter;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $adapterOptions;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $client;
 
-    public function __construct($domain, $force_protocol, $services, $cache, $client)
+    /**
+     * @param string  $domain
+     * @param boolean $forceProtocol
+     * @param array   $services
+     * @param string  $cache
+     * @param string  $client
+     */
+    public function __construct($domain, $forceProtocol, $services, $cache, $client)
     {
         $this->domain = $domain;
-        $this->force_protocol = $force_protocol;
+        $this->forceProtocol = $forceProtocol;
         $this->services = array_keys($services);
         $this->cacheTtl = $cache['ttl'];
         $this->cacheDir = isset($cache['cacheDir']) ? $cache['cacheDir'] : null;
         $this->adapter = isset($cache['adapter']) ? $cache['adapter'] : null;
         $this->adapterOptions = isset($cache['adapterOptions']) ? $cache['adapterOptions'] : null;
 
-        foreach($services as $name => $serviceConfig) {
+        foreach ($services as $name => $serviceConfig) {
             if (null !== $serviceConfig) {
                 $this->serviceConfig[$name] = $serviceConfig;
             }
         }
         $this->client = $client;
-    }
-
-
-    /**
-     * @param string $cacheDir
-     */
-    public function setCacheDir($cacheDir)
-    {
-        $this->cacheDir = $cacheDir;
     }
 
     /**
@@ -72,11 +88,11 @@ class ShariffConfig
     }
 
     /**
-     * @param int $cacheTtl
+     * @param string $cacheDir
      */
-    public function setCacheTtl($cacheTtl)
+    public function setCacheDir($cacheDir)
     {
-        $this->cacheTtl = $cacheTtl;
+        $this->cacheDir = $cacheDir;
     }
 
     /**
@@ -85,6 +101,22 @@ class ShariffConfig
     public function getCacheTtl()
     {
         return $this->cacheTtl;
+    }
+
+    /**
+     * @param int $cacheTtl
+     */
+    public function setCacheTtl($cacheTtl)
+    {
+        $this->cacheTtl = $cacheTtl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
     }
 
     /**
@@ -98,33 +130,17 @@ class ShariffConfig
     /**
      * @return string
      */
-    public function getDomain()
-    {
-        return $this->domain;
-    }
-
-    /**
-     * @return string
-     */
     public function getForceProtocol()
     {
-        return $this->force_protocol;
+        return $this->forceProtocol;
     }
 
     /**
-     * @param string $force_protocol
+     * @param string $forceProtocol
      */
-    public function setForceProtocol($force_protocol)
+    public function setForceProtocol($forceProtocol)
     {
-        $this->force_protocol = $force_protocol;
-    }
-
-    /**
-     * @param array $services
-     */
-    public function setServices($services)
-    {
-        $this->services = $services;
+        $this->forceProtocol = $forceProtocol;
     }
 
     /**
@@ -136,11 +152,11 @@ class ShariffConfig
     }
 
     /**
-     * @param string $adapter
+     * @param array $services
      */
-    public function setAdapter($adapter)
+    public function setServices($services)
     {
-        $this->adapter = $adapter;
+        $this->services = $services;
     }
 
     /**
@@ -149,6 +165,22 @@ class ShariffConfig
     public function getAdapter()
     {
         return $this->adapter;
+    }
+
+    /**
+     * @param string $adapter
+     */
+    public function setAdapter($adapter)
+    {
+        $this->adapter = $adapter;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAdapterOptions()
+    {
+        return $this->adapterOptions;
     }
 
     /**
@@ -162,27 +194,22 @@ class ShariffConfig
     /**
      * @return array
      */
-    public function getAdapterOptions()
-    {
-        return $this->adapterOptions;
-    }
-
-    /**
-     * @return array
-     */
     public function toArray()
     {
-        $result = array();
-        $result['domain'] = $this->domain;
-        $result['force_protocol'] = $this->force_protocol;
+        $result = [];
+        $result['domains'][] = $this->domain;
+        $result['force_protocol'] = $this->forceProtocol;
         $result['services'] = $this->services;
         $result = array_merge($result, $this->serviceConfig);
 
-        $result['services'] = array_filter($result['services'], function ($v) {
-            return 'Twitter' != $v;
-        });
+        $result['services'] = array_filter(
+            $result['services'],
+            function ($v) {
+                return 'Twitter' != $v;
+            }
+        );
 
-        $result['cache'] = array('ttl' => $this->cacheTtl);
+        $result['cache'] = ['ttl' => $this->cacheTtl];
         if (null !== $this->cacheDir) {
             $result['cache']['cacheDir'] = $this->cacheDir;
         }
