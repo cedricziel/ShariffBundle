@@ -3,10 +3,11 @@
 namespace CedricZiel\ShariffBundle\Controller;
 
 
+use CedricZiel\ShariffBundle\Model\ShariffConfig;
 use CedricZiel\ShariffBundle\Service\ShariffServiceInterface;
-use CedricZiel\ShariffBundle\ShariffConfig;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -67,9 +68,6 @@ class ShariffController
 
         $result = $this->shariffService->get($url);
 
-        $view = View::create($result);
-        $view->setFormat('json');
-
-        return $this->viewHandler->handle($view);
+        return new JsonResponse($result);
     }
 }

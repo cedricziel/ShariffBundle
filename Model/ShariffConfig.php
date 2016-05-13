@@ -1,6 +1,6 @@
 <?php
 
-namespace CedricZiel\ShariffBundle;
+namespace CedricZiel\ShariffBundle\Model;
 
 /**
  * Configures the shariff backend

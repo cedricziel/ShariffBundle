@@ -2,7 +2,7 @@
 
 namespace CedricZiel\ShariffBundle\Twig;
 
-use CedricZiel\ShariffBundle\ShariffConfig;
+use CedricZiel\ShariffBundle\Model\ShariffConfig;
 
 /**
  * @package CedricZiel\ShariffBundle\Twig
