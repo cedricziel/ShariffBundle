@@ -5,8 +5,6 @@ namespace CedricZiel\ShariffBundle\Controller;
 
 use CedricZiel\ShariffBundle\Model\ShariffConfig;
 use CedricZiel\ShariffBundle\Service\ShariffServiceInterface;
-use FOS\RestBundle\View\View;
-use FOS\RestBundle\View\ViewHandlerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
