@@ -2,7 +2,8 @@
 
 namespace CedricZiel\ShariffBundle\Service;
 
-use CedricZiel\ShariffBundle\ShariffConfig;
+use CedricZiel\ShariffBundle\Model\ShariffConfig;
+use GuzzleHttp\Exception\GuzzleException;
 use Heise\Shariff\Backend;
 
 /**
