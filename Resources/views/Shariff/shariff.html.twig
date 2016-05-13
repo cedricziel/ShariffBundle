@@ -1,0 +1,3 @@
+<div class="shariff" data-backend-url="{{ path('cedricziel_shariff_get') }}"
+     data-services="{{ shariffConfig.services | json_encode() | lower }}"
+     data-lang="{{ locale }}"{% if url is defined %} data-url="{{ url }}"{% endif %}></div>

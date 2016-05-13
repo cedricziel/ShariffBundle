@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="cedricziel_shariff.shariff_config.class">
+            CedricZiel\ShariffBundle\ShariffConfig
+        </parameter>
+        <parameter key="cedricziel_shariff.shariff_service.class">
+            CedricZiel\ShariffBundle\Service\ShariffService
+        </parameter>
+        <parameter key="cedricziel_shariff.shariff_controller.class">
+            CedricZiel\ShariffBundle\Controller\ShariffController
+        </parameter>
+        <parameter key="cedricziel_shariff.shariff_extension.class">
+            CedricZiel\ShariffBundle\Twig\ShariffExtension
+        </parameter>
+    </parameters>
+
+    <services>
+        <service id="cedricziel_shariff.shariff_config" class="%cedricziel_shariff.shariff_config.class%">
+            <argument>%cedricziel_shariff.shariff_config.domain%</argument>
+            <argument>%cedricziel_shariff.shariff_config.force_protocol%</argument>
+            <argument>%cedricziel_shariff.shariff_config.services%</argument>
+            <argument>%cedricziel_shariff.shariff_config.cache%</argument>
+            <argument>%cedricziel_shariff.shariff_config.client%</argument>
+        </service>
+
+        <service id="cedricziel_shariff.shariff_service" class="%cedricziel_shariff.shariff_service.class%">
+            <argument type="service" id="cedricziel_shariff.shariff_config"/>
+        </service>
+
+        <service id="cedricziel_shariff.shariff_controller" class="%cedricziel_shariff.shariff_controller.class%">
+            <argument type="service" id="cedricziel_shariff.shariff_service"/>
+            <argument type="service" id="cedricziel_shariff.shariff_config"/>
+            <argument type="service" id="fos_rest.view_handler"/>
+        </service>
+
+        <service id="cedricziel_shariff.shariff_extension" class="%cedricziel_shariff.shariff_extension.class%">
+            <tag name="twig.extension"/>
+            <argument type="service" id="cedricziel_shariff.shariff_config"/>
+        </service>
+    </services>
+</container>
