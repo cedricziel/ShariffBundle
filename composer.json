@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "heise/shariff": "~5.2.3",
+        "heise/shariff": "dev-master",
         "symfony/framework-bundle": ">=3.0.6",
         "twig/twig": "~1.23|~2.0"
     },
